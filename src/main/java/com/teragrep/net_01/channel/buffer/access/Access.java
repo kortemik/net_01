@@ -49,6 +49,12 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Supplier;
 
+/**
+ * Access is a terminable gate for use with try-with-resources block used to ensure resources protected by it are no
+ * longer accessed when terminated. It does only protect direct access to the resources. Such resources must chain the
+ * use of the same Access to protect their own methods and these methods must not give direct access to the protected
+ * resources but just of copy of these.
+ */
 public final class Access implements Supplier<Lease> {
 
     private long accessCount;
