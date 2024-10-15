@@ -104,6 +104,9 @@ public final class BufferLeasePool {
                     new BufferContainerImpl(bufferId.incrementAndGet(), byteBufferSupplier.get()),
                     this
             );
+
+            // debug
+            bufferLease = new BufferLeaseTracing(bufferLease);
         }
         else {
             // otherwise, wrap bufferContainer with phaser decorator (bufferLease)
