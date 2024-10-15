@@ -166,7 +166,7 @@ public class BufferLeaseTracing implements BufferLease {
 
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Long, String> entry : printMap.entrySet()) {
-            sb.append(entry.getKey()).append(": ").append(entry.getValue());
+            sb.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
         return sb.toString();
     }
