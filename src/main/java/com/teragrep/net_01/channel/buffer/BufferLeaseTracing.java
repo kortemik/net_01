@@ -67,43 +67,85 @@ public class BufferLeaseTracing implements BufferLease {
     @Override
     public long id() {
         addTrace(new Exception());
-        return bufferLease.id();
+        try {
+            return bufferLease.id();
+        }
+        catch (Exception e) {
+            System.err.println(this);
+            throw e;
+        }
     }
 
     @Override
     public long refs() {
         addTrace(new Exception());
-        return bufferLease.refs();
+        try {
+            return bufferLease.refs();
+        }
+        catch (Exception e) {
+            System.err.println(this);
+            throw e;
+        }
     }
 
     @Override
     public ByteBuffer buffer() {
         addTrace(new Exception());
-        return bufferLease.buffer();
+        try {
+            return bufferLease.buffer();
+        }
+        catch (Exception e) {
+            System.err.println(this);
+            throw e;
+        }
     }
 
     @Override
     public void addRef() throws IllegalStateException {
         addTrace(new Exception());
-        bufferLease.addRef();
+        try {
+            bufferLease.addRef();
+        }
+        catch (Exception e) {
+            System.err.println(this);
+            throw e;
+        }
     }
 
     @Override
     public void removeRef() throws IllegalStateException {
         addTrace(new Exception());
-        bufferLease.removeRef();
+        try {
+            bufferLease.removeRef();
+        }
+        catch (Exception e) {
+            System.err.println(this);
+            throw e;
+        }
     }
 
     @Override
     public boolean isTerminated() {
         addTrace(new Exception());
-        return bufferLease.isTerminated();
+        try {
+            return bufferLease.isTerminated();
+        }
+        catch (Exception e) {
+            System.err.println(this);
+            throw e;
+        }
     }
 
     @Override
     public boolean isStub() {
         addTrace(new Exception());
-        return bufferLease.isStub();
+        try {
+            return bufferLease.isStub();
+        }
+        catch (Exception e) {
+            System.err.println(this);
+            throw e;
+        }
     }
 
     private void addTrace(Exception e) {
