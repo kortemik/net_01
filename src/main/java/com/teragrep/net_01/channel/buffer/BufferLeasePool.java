@@ -111,6 +111,7 @@ public final class BufferLeasePool {
         else {
             // otherwise, wrap bufferContainer with phaser decorator (bufferLease)
             bufferLease = new BufferLeaseImpl(bufferContainer, this);
+            bufferLease = new BufferLeaseTracing(bufferLease);
         }
 
         if (LOGGER.isDebugEnabled()) {
